@@ -1,37 +1,20 @@
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { User } from '../vite-env';
 
-const Mask = () => (
-    <span
-        style={{
-            backgroundColor: 'white',
-            borderRadius: '50%',
-            height: '100%',
-            left: 0,
-            opacity: 0.75,
-            position: 'absolute',
-            top: 0,
-            width: '100%',
-        }}
-    />
-);
-export const Avatar = ({ user }: { user: User }) => {
+const Mask = () => <span className='absolute left-0 top-0 h-full w-full rounded-full bg-white opacity-75' />;
+export const CustomAvatar = ({ user }: { user: User }) => {
     return (
-        <div style={{ display: 'block', margin: '0 4px 0 4px' }}>
-            <div
-                style={{
-                    backgroundColor: user.color,
-                    borderRadius: '50%',
-                    height: '36px',
-                    margin: '0 auto 0 auto',
-                    overflow: 'hidden',
-                    position: 'relative',
-                    width: '36px',
-                }}
-            >
-                <img src={user.avatar} style={{ width: '100%', height: '100%' }} />
+        <div className='mx-1'>
+            <div className='relative mx-auto h-9 w-9 overflow-hidden rounded-full' style={{ backgroundColor: user.color }}>
+                <Avatar className='flex h-full w-full items-center justify-center'>
+                    <AvatarImage src={user.avatar} />
+                    <AvatarFallback>{user?.name?.charAt(0)}</AvatarFallback>
+                </Avatar>
                 {!user.visibility && <Mask />}
             </div>
-            <div style={{ color: 'white', fontSize: 12 }}>{user.name}</div>
+            <div className='text-xs' style={{ color: user.color }}>
+                {user.name}
+            </div>
         </div>
     );
 };

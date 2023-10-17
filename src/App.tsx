@@ -50,7 +50,7 @@ function App() {
                     name: randomName(),
                     visibility: !document.hidden,
                 }),
-            15000
+            5000
         );
         // when closing window, leave channel, remove listener, clear time interval
         return () => {
