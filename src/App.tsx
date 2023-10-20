@@ -28,7 +28,10 @@ function App() {
         (async () => {
             try {
                 const yomo = await presence;
-                const tempChannel = await yomo.joinChannel('auto-update-state', self);
+                const tempChannel = await yomo.joinChannel(
+                    'auto-update-state',
+                    self
+                );
                 setChannel(tempChannel);
             } catch (error) {
                 console.log(error);
@@ -54,7 +57,10 @@ function App() {
         );
         // when closing window, leave channel, remove listener, clear time interval
         return () => {
-            document.removeEventListener('visibilitychange', selfVisibilityChange);
+            document.removeEventListener(
+                'visibilitychange',
+                selfVisibilityChange
+            );
             clearInterval(autoUpdateState);
             channel?.leave();
         };
