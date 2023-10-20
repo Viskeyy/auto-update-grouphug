@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
+    "@yomo/group-hug-react": "^1.0.15",
     "@yomo/presence": "^2.2.18",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
