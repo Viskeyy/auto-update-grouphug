@@ -63,7 +63,7 @@ function App() {
     useEffect(() => {
         if (!channel) return;
         // subscribe all users
-        channel?.subscribePeers((peers) => setUsers(peers));
+        channel?.subscribePeers((peers) => setUsers(peers as User[]));
         // subscribe state change event
         channel?.subscribe('update-state', (user: User) => {
             setUsers((users) => {
