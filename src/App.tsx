@@ -93,9 +93,12 @@ function App() {
         avatar: '',
     });
     useEffect(() => {
+        const url = new URL(window.location.href);
+        const urlParams = url.searchParams;
+
         const autoUpdateState = setInterval(() => {
             setUser({
-                name: randomName(),
+                name: urlParams.get('n') ?? 'yomo',
                 avatar: `https://api.dicebear.com/6.x/pixel-art/png?seed=${randomName()}`,
             });
         }, 10000);
