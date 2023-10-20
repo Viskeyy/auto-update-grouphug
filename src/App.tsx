@@ -7,8 +7,8 @@ import { GroupHug } from './components/GroupHug';
 
 // create presence instance
 const id = new Date().valueOf().toString(36);
-const presence = createPresence('https://lo.yomo.dev:8443/v1', {
-    publicKey: 'PiHYRKapgfmHxthWmWlqpAcdYdxCtPtl2jmwrzig',
+const presence = createPresence(import.meta.env.PRSCD_URL, {
+    publicKey: import.meta.env.PRSCD_PUBLIC_KEY,
     id,
 });
 
